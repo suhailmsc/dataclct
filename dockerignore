@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+profiles.db
+uploads/
+.git
+.venv
+Dockerfile
+docker-compose.yml

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profiles</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 520px; margin: 2rem auto; padding: 0 1rem; }
+    form { display: flex; flex-direction: column; gap: .6rem; }
+    input, select, button { padding: .5rem; font-size: 1rem; }
+    #message { min-height: 1.2em; font-weight: 600; }
+    .card { border: 1px solid #ddd; border-radius: 8px; padding: .5rem 1rem; margin: .6rem 0; }
+    .card img { border-radius: 6px; margin-bottom: .5rem; }
+  </style>
+</head>
+<body>
+  <h1>Create Profile</h1>
+
+  <form id="profileForm" enctype="multipart/form-data" method="post" action="/api/profiles">
+    <input id="name" name="name" required placeholder="Full name">
+    <input id="userId" name="user_id" required placeholder="Unique ID">
+
+    <select id="country" name="country" required>
+      <option value="">Select country</option>
+      <option>India</option>
+      <option>United Arab Emirates</option>
+      <option>United Kingdom</option>
+      <option>United States</option>
+      <option>Other</option>
+    </select>
+
+    <input id="photo" name="photo" type="file" accept="image/*">
+    <button type="submit">Save Profile</button>
+  </form>
+
+  <p id="message"></p>
+  <div id="profiles"></div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

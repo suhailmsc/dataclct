@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    image: dataclct1:latest
+  profiles:
+    build: .
+    container_name: profile-app
+    ports:
+      - "5000:5000"
+    environment:
+      DATA_DIR: /data
+      UPLOAD_DIR: /uploads
+    volumes:
+      - ./data:/data
+      - ./uploads:/uploads
+    restart: unless-stopped
